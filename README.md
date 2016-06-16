@@ -1,5 +1,7 @@
 ### object-description-filter
 
+[![CircleCI](https://circleci.com/gh/conorhastings/object-description-filter.svg?style=svg)](https://circleci.com/gh/conorhastings/object-description-filter)
+
 Pass in an object, with a nested description of the desired object. Return will be filtered version of passed in object based on description. Will ignore keys in the description if they don't exist in the base object.
 
 ### use
