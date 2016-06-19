@@ -44,11 +44,11 @@ test('object is properly filtered', function(assert) {
 });
 
 test('should throw when typeof object argument is not object', function(assert) {
-  assert.throws(() => objectDescriptionFilter(), 'argument object expected type object but received undefined');
+  assert.throws(function() { objectDescriptionFilter() }, 'argument object expected type object but received undefined');
   assert.end();
 });
 
 test('should throw when typeof description argument is not object', function(assert) {
-  assert.throws(() => objectDescriptionFilter('', 2), 'argument description expected type object but received number');
+  assert.throws(function() {  objectDescriptionFilter('', 2) }, 'argument description expected type object but received number');
   assert.end();
 });
