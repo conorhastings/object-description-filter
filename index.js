@@ -11,8 +11,7 @@ function objectDescriptionFilter(object, description) {
     var hasKey = object[key] !== undefined;
     if (hasKey && typeof(object[key]) === 'object' && !Array.isArray(object[key])) {
       returnObject[key] = objectDescriptionFilter(object[key], description[key])
-    }
-    else if (hasKey) {
+    } else if (hasKey) {
       returnObject[key] = object[key];
     }
   }
