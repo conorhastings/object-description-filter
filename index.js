@@ -2,7 +2,7 @@ function objectDescriptionFilter(object, description) {
   if (typeof object !== 'object') {
     throw new Error('argument object expected type object but received ' + typeof object);
   } else if(typeof description !== 'object') {
-    throw new Error('argument description expected type object but received ' + typeof object);
+    throw new Error('argument description expected type object but received ' + typeof description);
   }
   var returnObject = {};
   var keys = Object.keys(description);
