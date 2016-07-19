@@ -1,6 +1,6 @@
 {
   "name": "object-description-filter",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "perform a nested filter on an object based on description of desired object",
   "main": "index.js",
   "scripts": {
