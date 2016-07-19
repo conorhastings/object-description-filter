@@ -5,12 +5,19 @@ function objectDescriptionFilter(object, description) {
     throw new Error('argument description expected type object but received ' + typeof description);
   }
   var returnObject = {};
-  var keys = Object.keys(description);
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
+  var descriptionKeys = Object.keys(description);
+  for (var i = 0; i < descriptionKeys.length; i++) {
+    var key = descriptionKeys[i];
     var hasKey = object[key] !== undefined;
     if (hasKey && typeof(object[key]) === 'object' && !Array.isArray(object[key])) {
-      returnObject[key] = objectDescriptionFilter(object[key], description[key])
+      const needsRecursion = typeof description[key] === 'object';
+      returnObject[key] = (
+        needsRecursion 
+        ?
+        objectDescriptionFilter(object[key], description[key])
+        :
+        object[key]
+      );
     } else if (hasKey) {
       returnObject[key] = object[key];
     }
