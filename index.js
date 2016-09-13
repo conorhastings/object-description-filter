@@ -10,7 +10,7 @@ function objectDescriptionFilter(object, description) {
     var key = descriptionKeys[i];
     var hasKey = object[key] !== undefined;
     if (hasKey && typeof(object[key]) === 'object' && !Array.isArray(object[key])) {
-      const needsRecursion = typeof description[key] === 'object';
+      var needsRecursion = typeof description[key] === 'object' && !Array.isArray(description[key]);
       returnObject[key] = (
         needsRecursion 
         ?
