@@ -1,8 +1,14 @@
-function objectDescriptionFilter(object, description) {
-  if (typeof object !== 'object') {
-    throw new Error('argument object expected type object but received ' + typeof object);
-  } else if(typeof description !== 'object') {
-    throw new Error('argument description expected type object but received ' + typeof description);
+function objectDescriptionFilter(description, object) {
+  if (arguments.length === 1 && typeof description === 'object') {
+    return function (object) {
+      return objectDescriptionFilter(description, object);
+    }
+  }
+
+  if (typeof description !== 'object') {
+    throw new Error('argument object expected type object but received ' + typeof description);
+  } else if(typeof object !== 'object') {
+    throw new Error('argument description expected type object but received ' + typeof object);
   }
   var returnObject = {};
   var descriptionKeys = Object.keys(description);
@@ -14,7 +20,7 @@ function objectDescriptionFilter(object, description) {
       returnObject[key] = (
         needsRecursion 
         ?
-        objectDescriptionFilter(object[key], description[key])
+        objectDescriptionFilter(description[key], object[key])
         :
         object[key]
       );
